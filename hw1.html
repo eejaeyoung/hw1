@@ -6,47 +6,105 @@
     <script>
         function quest0() {
             let a = prompt("초 단위 시간을 입력하세요");
-            a = number(a);
-            b = a / 60
+            b = parseInt(a / 60)
             c = a % 60
-            console.log(b);
+            console.log(b+"분"+c+"초입니다.");
         }
 
         function quest1() {
+            let x1 = prompt("첫번째 점의 x좌표를 입력하세요");
+            let y1 = prompt("첫번째 점의 y좌표를 입력하세요");
+            let x2 = prompt("두번째 점의 x좌표를 입력하세요");
+            let y2 = prompt("두번째 점의 y좌표를 입력하세요");
             
-            // 여기에 스크립트를 작성하세요            
-
-            let distance = getDist(p1, p2); // 반드시 이 코드를 이용하세요
+            function getDist(x1,y1,x2,y2) { Math.sqrt(Math.pow((x1-x2),2) + Math.pow((y1-y2),2));}
+            let distance = getDist(x1,y1,x2,y2);
             console.log(distance);
+            // 1번문제는 잘 모르겠습니다..ㅠㅠ
 
-        }
-
-        function getDist() { // 입력 인자 설정 필요
-            // 여기에 스크립트를 작성하세요
         }
 
         function quest2(str) {  
             
-            // 여기에 스크립트를 작성하세요
+            a = new String(str);
+            console.log(a.toUpperCase());
+            
         }
 
         function quest3() {
-            // 여기에 스크립트를 작성하세요
+            var num1 = prompt("첫번째 숫자를 입력하세요");
+            var oper = prompt("연산자를 입력하세요");
+            var num2 = prompt("두번째 숫자를 입력하세요");
+            num1 = Number(num1)
+            num2 = Number(num2)
 
-            var answer = operate(num1, oper, num2); // 반드시 이 코드를 사용하세요
-            console.log("정답은 %d입니다.", answer);
+            function operate(num1, oper, num2) { 
+                switch(oper){
+                    case '+' :  
+                        answer = num1 + num2
+                    break;
+                    case '-' : 
+                        answer = num1 - num2
+                    break;
+                    case '*' : 
+                        answer = num1 * num2
+                    break;
+                    case '/' : 
+                        answer = num1 / num2
+                    break;
+                    case '%' : 
+                        answer = num1 % num2
+                    break;
+                }
+
         }
-
-        function operate(num1, oper, num2) { // 반드시 이 함수를 이용하여 연산 결과를 계산하세요
-            
-            // 여기에 스크립트를 작성하세요
-            // 단, 반드시 switch 문을 활용하세요
-
+            var answer = operate(num1, oper, num2);
+            answer = parseInt(answer);
+            console.log("정답은 %d입니다.",answer);
+            //answer가 계속 NaN으로 나옵니다..ㅠㅠ
         }
 
         function quest4() {
+            let a = prompt("가위바위보!");
+            b = Math.floor( ( Math.random() * 3 ) );
+            switch(a){
+                case '가위' :
+                    if (b == 0){
+                        console.log("컴퓨터 : 가위");
+                        console.log("무승부!");
+                    } else if (b == 1){
+                        console.log("컴퓨터 : 바위");
+                        console.log("컴퓨터 승리!");
+                    } else {
+                        console.log("컴퓨터 : 보");
+                        console.log("사용자 승리!");
+                    } break;
+                case '바위' :
+                    if (b == 0){
+                        console.log("컴퓨터 : 가위");
+                        console.log("사용자승리!");
+                    } else if (b == 1){
+                        console.log("컴퓨터 : 바위");
+                        console.log("무승부!");
+                    } else {
+                        console.log("컴퓨터 : 보");
+                        console.log("컴퓨터 승리!");
+                    } break;
+                case '보' :   
+                    if (b == 0){
+                        console.log("컴퓨터 : 가위");
+                        console.log("컴퓨터승리!");
+                    } else if (b == 1){
+                        console.log("컴퓨터 : 바위");
+                        console.log("사용자승리!");
+                    } else {
+                        console.log("컴퓨터 : 보");
+                        console.log("무승부!");
+                    } break;
+                    
+            }
 
-             // 여기에 스크립트를 작성하세요
+            
         }
 
         function quest5() {
@@ -62,31 +120,50 @@
         }
 
         function quest6() {
+            do{
+                input = prompt("숫자를 입력하세요");
+                if (input % 2 == 1){
+                    console.log(input+"를 입력하셨네요");
+                    input = prompt("숫자를 입력하세요");
+                }
+            } while (input > 0)
+            console.log("끝!");
             
-            // 여기에 스크립트를 작성하세요
         }
 
         function quest7(){
             
-            // 여기에 스크립트를 작성하세요
+          let str = prompt("문자열을 입력하세요");
+          let str1 = str.split(' ');
+          let str2 = str1.slice(0,1);
+          console.log(str2);
 
         }
 
         let testStr = 'My name is mymy. Your name is youryour. His name is hishis. Her name is herher. So, my, your, his, her, name will be mymyyouryourhishisherehr.';
         // 위 변수를 이용하여 quest8()함수를 실행하세요
 
-        function quest8(str){            
-            // 여기에 스크립트를 작성하세요
+        function quest8(testStr){            
+            var str1 = testStr.split(' ');
+            var str2 = new Set(str1);
+            var str3 = [...str2];
+            str3.sort();
+            console.log(str3);
+
             
         }
 
         let longStr = "Computer engineering has been rapidly changed than any other academic disciplines; these changes are immediately reflected in the industrial field.";
         // 위 변수를 이용하여 quest9()함수를 실행하세요
 
-        function quest9(str){
+        function quest9(longStr){
             
-            // 여기에 스크립트를 작성하세요    
-                        
+            var str1 = longStr.split("");
+            function getCount(str1) { 
+                return str1.reduce((pv, cv)=>{ pv[cv] = (pv[cv] || 0) + 1; return pv; }, {}); 
+            }
+            console.log(getCount(str1));
+
         }
 
     </script>
